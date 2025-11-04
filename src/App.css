@@ -1,88 +1,115 @@
+/* App.css - Dark Green Theme */
+
+/* --- GLOBAL RESET & FONT --- */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
+/* --- DARK GREEN BODY & BACKGROUND --- */
 body {
-  background: linear-gradient(
-    90deg,
-    rgba(48, 16, 255, 1) 0%,
-    rgba(100, 115, 255, 1) 100%
-  );
+  /* 🟢 FIX 1: Deep Forest Green Background */
+  background-color: #2f3e46;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+/* --- TODO APP CONTAINER (The Card) --- */
 .todo-app {
   display: flex;
   flex-direction: column;
   justify-content: start;
   width: 520px;
   min-height: 600px;
-  background: #161a2b;
+
+  /* 🟢 FIX 2: Soft Beige/Warm White Card Background */
+  background: #f8f4ec;
+
   text-align: center;
-  margin: 128px auto;
-  border-radius: 10px;
+  margin: 32px auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   padding-bottom: 32px;
 }
 
+/* --- HEADING (On the light card background) --- */
 h1 {
   margin: 32px 0;
-  color: #fff;
-  font-size: 24px;
+  /* Dark Charcoal color for contrast */
+  color: #2f3e46;
+  font-size: 28px;
+  font-weight: 700;
 }
 
-.complete {
-  text-decoration: line-through;
-  opacity: 0.4;
-}
-
+/* --- INPUT FORM --- */
 .todo-form {
   margin-bottom: 32px;
 }
 
 .todo-input {
   padding: 14px 32px 14px 16px;
-  border-radius: 4px 0 0 4px;
-  border: 2px solid #5d0cff;
+  border-radius: 6px 0 0 6px;
+
+  /* Muted Sage Green border */
+  border: 2px solid #a3b18a;
+
   outline: none;
   width: 320px;
-  background: transparent;
-  color: #fff;
+
+  /* White background, Dark Charcoal text */
+  background: #ffffff;
+  color: #2f3e46;
+
+  transition: border-color 0.3s ease;
 }
 
 .todo-input::placeholder {
-  color: #e2e2e2;
+  color: #b5b5b5;
 }
 
+/* --- ADD BUTTON --- */
 .todo-button {
   padding: 16px;
   border: none;
-  border-radius: 0 4px 4px 0;
+  border-radius: 0 6px 6px 0;
   cursor: pointer;
   outline: none;
-  background: linear-gradient(
-    90deg,
-    rgba(93, 12, 255, 1) 0%,
-    rgba(155, 0, 250, 1) 100%
-  );
-  color: #fff;
+
+  /* Solid Muted Sage Green */
+  background-color: #a3b18a;
+
+  /* Dark Charcoal text */
+  color: #2f3e46;
+  font-weight: 600;
   text-transform: capitalize;
+  transition: background-color 0.3s ease;
 }
 
+.todo-button:hover {
+  background-color: #8c9b73;
+}
+
+/* --- EDIT MODE STYLES --- */
 .todo-input.edit {
-  border: 2px solid #149fff;
+  border: 2px solid #2f3e46;
 }
 
 .todo-button.edit {
-  background: linear-gradient(
-    90deg,
-    rgba(20, 159, 255, 1) 0%,
-    rgba(17, 122, 255, 1) 100%
-  );
+  /* Dark Charcoal button for editing */
+  background-color: #2f3e46;
+  color: #ffffff;
   padding: 16px 22px;
 }
 
+.todo-button.edit:hover {
+  background-color: #4a5759;
+}
+
+/* --- TODO ROWS --- */
 .todo-container {
   display: flex;
   flex-direction: row;
@@ -93,55 +120,93 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 4px auto;
-  color: #fff;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 118, 20, 1) 0%,
-    rgba(255, 84, 17, 1) 100%
-  );
+  margin: 8px auto;
 
+  /* 🟢 FIX 3: Darker background for rows for more green contrast */
+  background: #4a5759;
+
+  /* 🟢 FIX 4: Light text on the dark row background */
+  color: #f8f4ec;
   padding: 16px;
-  border-radius: 5px;
+  border-radius: 6px;
   width: 90%;
+  transition: background-color 0.3s ease;
 }
 
-.todo-row:nth-child(4n + 1) {
-  background: linear-gradient(
-    90deg,
-    rgba(93, 12, 255, 1) 0%,
-    rgba(155, 0, 250, 1) 100%
-  );
-}
-
-.todo-row:nth-child(4n + 2) {
-  background: linear-gradient(
-    90deg,
-    rgba(255, 12, 241, 1) 0%,
-    rgba(250, 0, 135, 1) 100%
-  );
-}
-
+/* Neutralize all aggressive nth-child gradient styles */
+.todo-row:nth-child(4n + 1),
+.todo-row:nth-child(4n + 2),
 .todo-row:nth-child(4n + 3) {
-  background: linear-gradient(
-    90deg,
-    rgba(20, 159, 255, 1) 0%,
-    rgba(17, 122, 255, 1) 100%
-  );
+  background: #4a5759;
 }
 
+.todo-row {
+  /* ... (Existing styles for layout and light text/padding) ... */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px auto;
+  color: #f8f4ec; /* Light text */
+  padding: 16px;
+  border-radius: 6px;
+  width: 90%;
+  transition: background-color 0.3s ease;
+}
+
+/* 🟢 Alternating Color 1: Muted Sage Green */
+.todo-row:nth-child(3n + 1) {
+  background-color: #a3b18a;
+  color: #2f3e46; /* Dark text for contrast on lighter green */
+}
+
+/* 🟢 Alternating Color 2: Soft Light Tan / Beige */
+.todo-row:nth-child(3n + 2) {
+  background-color: #d9c9b4;
+  color: #2f3e46; /* Dark text for contrast on tan */
+}
+
+/* 🟢 Alternating Color 3: Muted Slate Blue/Gray */
+.todo-row:nth-child(3n + 3) {
+  background-color: #72808c;
+  color: #f8f4ec; /* Light text works well on this darker slate */
+}
+
+/* Completed state - Apply opacity/effect over the color */
+.complete {
+  text-decoration: line-through;
+  opacity: 0.6;
+  /* We remove the background override here so it applies to the color below it */
+  background-color: transparent !important;
+}
+
+/* Completed state */
+.complete {
+  text-decoration: line-through;
+  opacity: 0.6;
+  background: #3b4549; /* Slightly darker completed background */
+}
+
+/* --- ICONS --- */
 .icons {
   display: flex;
   align-items: center;
-  font-size: 24px;
+  font-size: 20px;
   cursor: pointer;
 }
 
 .delete-icon {
-  margin-right: 5px;
-  color: #fff;
+  margin-right: 8px;
+  color: #a3b18a; /* Sage Green for Delete */
+  transition: color 0.3s ease;
+}
+.delete-icon:hover {
+  color: #f8f4ec; /* Lightest color on hover */
 }
 
 .edit-icon {
-  color: #fff;
+  color: #f8f4ec; /* Lightest color for Edit */
+  transition: color 0.3s ease;
+}
+.edit-icon:hover {
+  color: #a3b18a; /* Sage Green on hover */
 }
